@@ -1,5 +1,5 @@
 @tool
-extends TileMap
+extends TileMapLayer
 
 @export var bake_shapes : bool = false : set = run_code
 
@@ -13,10 +13,10 @@ func run_code(_fake_bool = null) -> void:
 		baked_static_body.owner = get_tree().edited_scene_root
 	
 	var polygons : Array = []
-	var used_cells : Array = get_used_cells(0)
+	var used_cells : Array = get_used_cells()
 	
 	for cell_coords in used_cells:
-		var cell_data : TileData = get_cell_tile_data(0, cell_coords)
+		var cell_data : TileData = get_cell_tile_data(cell_coords)
 		polygons.append(get_poly_coords(cell_coords, cell_data, tile_set.tile_size))
 	
 	var merged_polygons : Array = merge_polygons(polygons)
