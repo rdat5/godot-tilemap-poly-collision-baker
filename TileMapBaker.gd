@@ -2,6 +2,8 @@
 extends TileMapLayer
 
 @export var bake_shapes : bool = false : set = run_code
+@export var one_way : bool = false
+@export var one_way_collision_margin : float = 1
 
 func run_code(_fake_bool = null) -> void:
 	var baked_static_body : StaticBody2D = find_child("CollisionShapes")
@@ -30,6 +32,8 @@ func run_code(_fake_bool = null) -> void:
 		baked_static_body.add_child(shape)
 		shape.name = "shape" + str(i)
 		shape.owner = get_tree().edited_scene_root
+		shape.one_way_collision = one_way
+		shape.one_way_collision_margin = one_way_collision_margin
 
 func get_poly_coords(cell_coords, cell_data, tile_size) -> PackedVector2Array:
 	var adjusted_coords : PackedVector2Array = []
