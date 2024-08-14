@@ -19,7 +19,7 @@ A tool script for Godot TileMapLayer nodes to generate merged contiguous Collisi
 ![Before](demo_before.JPG)
 * The script will add a StaticBody2D node as a child of the TileMapLayer node, with the merged contiguous CollisionPolygon2D nodes as children of that node
 ![After](demo_after.JPG)
-* If you make any changes the TileMapLayer after baking, you can hit 'Bake Shapes' again and the script will delete the shapes, and regenerate them
+* If you make any changes to the TileMapLayer after baking, you can hit 'Bake Shapes' again and the script will delete the shapes, and regenerate them
 * To use One Way Collision, use a separate TileMapLayer with TileMapBaker.gd attached. Enable 'One Way' and set the 'One Way Collision Margin' and click 'Bake Shapes'.
 ![OneWay](oneway.jpg)
 * All shapes generated with 'One Way' enabled in the TileMapBaker.gd script will be set for one way collision with the margin entered.
